@@ -1,7 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
+import './popup.css'
 
-const PopUp = <div>Hello World</div>
+const PopUp = <img src="icon.png" />
 
 const root = document.createElement('div')
 document.body.appendChild(root)
