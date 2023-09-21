@@ -7,6 +7,7 @@ module.exports = {
   devtool: 'cheap-module-source-map',
   entry: {
     popup: path.resolve('src/popup/popup.tsx'),
+    options: path.resolve('src/options/options.tsx'),
   },
   module: {
     rules: [
@@ -21,7 +22,7 @@ module.exports = {
     new CopyPlugin({
       patterns: [
         {
-          from: path.resolve('src/manifest.json'),
+          from: path.resolve('src/static'),
           to: path.resolve('dist'),
         },
       ],
@@ -31,6 +32,11 @@ module.exports = {
       filename: 'popup.html',
       chunks: ['popup'],
     }),
+    new HtmlPlugin({
+      title: 'React Extension Options',
+      filename: 'options.html',
+      chunks: ['options'],
+    }),
   ],
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
@@ -38,5 +44,10 @@ module.exports = {
   output: {
     filename: '[name].js',
     path: path.resolve('dist'),
+  },
+  optimization: {
+    splitChunks: {
+      chunks: 'all',
+    },
   },
 }
