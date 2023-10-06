@@ -5,10 +5,10 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 module.exports = {
   entry: {
-    popup: path.resolve('src/popup/popup.tsx'),
-    options: path.resolve('src/options/options.tsx'),
-    background: path.resolve('src/background/background.ts'),
-    content: path.resolve('src/content/content.ts'),
+    popup: path.resolve('src/Popup/Popup.tsx'),
+    options: path.resolve('src/Options/Options.tsx'),
+    background: path.resolve('src/background.ts'),
+    content: path.resolve('src/content.ts'),
   },
   module: {
     rules: [
@@ -34,7 +34,7 @@ module.exports = {
     new CopyPlugin({
       patterns: [
         {
-          from: path.resolve('src/static'),
+          from: path.resolve('public'),
           to: path.resolve('dist'),
         },
       ],
